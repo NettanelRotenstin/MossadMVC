@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MossadMVC", "MossadMVC.csproj", "{B348E338-7023-4056-87ED-CC8469E3AFF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B348E338-7023-4056-87ED-CC8469E3AFF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B348E338-7023-4056-87ED-CC8469E3AFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B348E338-7023-4056-87ED-CC8469E3AFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B348E338-7023-4056-87ED-CC8469E3AFF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FB8B9FB-39A6-4DBC-98B9-39F7B5A1B0EB}
+	EndGlobalSection
+EndGlobal
