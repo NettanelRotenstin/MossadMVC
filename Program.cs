@@ -22,6 +22,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=agants}/{action=Page1}/{id?}");
+    pattern: "{controller=agant}/{action=Page1}/{id?}");
 
 app.Run();

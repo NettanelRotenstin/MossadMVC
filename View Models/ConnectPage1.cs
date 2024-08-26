@@ -12,9 +12,9 @@
         public int countAllMissions { get; set; }
         public int countActiveMissions { get; set; }
 
-        public string relativeAgantTargets { get; set;}
+        public string relativeAgantTargets { get; set; } = "";
 
-        public string relativeAgantMissions { get; set;}
+        public string relativeAgantMissions { get; set; } = "";
 
 
 

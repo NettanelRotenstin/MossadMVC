@@ -31,13 +31,13 @@ namespace MossadMVC.Controllers
 
 
             //get api count all agants
-            var resultCountAllAgant = await _httpClient.GetStringAsync("http://localhost:5227/api/agants/count");
+            var resultCountAllAgant = await _httpClient.GetStringAsync("http://localhost:5157/api/agants/count");
             //converting to the viewmodel
             page1.countAllAgants = JsonConvert.DeserializeObject<int>(resultCountAllAgant);
 
 
             //get api count active agants
-            var resultActiveAgants = await _httpClient.GetStringAsync("http://localhost:5227/api/agants/Activecount");
+            var resultActiveAgants = await _httpClient.GetStringAsync("http://localhost:5157/api/agants/Activecount");
             //converting to the viewmodel
 
             page1.countActiveAgants = JsonConvert.DeserializeObject<int>(resultActiveAgants);
@@ -46,14 +46,14 @@ namespace MossadMVC.Controllers
 
 
             //get api count all targets
-            var resultCountAllTargets = await _httpClient.GetStringAsync("http://localhost:5227/api/targets/count");
+            var resultCountAllTargets = await _httpClient.GetStringAsync("http://localhost:5157/api/targets/count");
             //converting to the viewmodel
 
             page1.countAllTargets = JsonConvert.DeserializeObject<int>(resultCountAllTargets);
 
 
             //get api count all killed targets
-            var resultCountKilled = await _httpClient.GetStringAsync("http://localhost:5227/api/targets/KilledCount");
+            var resultCountKilled = await _httpClient.GetStringAsync("http://localhost:5157/api/targets/KilledCount");
             //converting to the viewmodel
 
             page1.countKilledTargets = JsonConvert.DeserializeObject<int>(resultCountKilled);
@@ -61,29 +61,29 @@ namespace MossadMVC.Controllers
 
 
             //get api count all Missiles  
-            var resultCountMissions = await _httpClient.GetStringAsync("http://localhost:5227/api/missions/count");
+            var resultCountMissions = await _httpClient.GetStringAsync("http://localhost:5157/api/missions/count");
             //converting to the viewmodel
 
             page1.countAllMissions = JsonConvert.DeserializeObject<int>(resultCountMissions);
 
 
             //get api count active Missiles  
-            var resultCountActiveMissions = await _httpClient.GetStringAsync("http://localhost:5227/api/missions/Activecount");
+            var resultCountActiveMissions = await _httpClient.GetStringAsync("http://localhost:5157/api/missions/Activecount");
             //converting to the viewmodel
 
             page1.countActiveMissions = JsonConvert.DeserializeObject<int>(resultCountActiveMissions);
 
             //get api relative agant to targets 
-            var resultRelativeAgantTargets = await _httpClient.GetStringAsync("http://localhost:5227/api/agants/relativeCount");
+            var resultRelativeAgantTargets = await _httpClient.GetStringAsync("http://localhost:5157/api/agants/relativeCount");
             //converting to the viewmodel
 
-            page1.relativeAgantTargets = JsonConvert.DeserializeObject<string>(resultRelativeAgantTargets);
+            page1.relativeAgantTargets =  resultRelativeAgantTargets;
 
             //get api relative agant to missions 
-            var resultRelativeAgantMissions = await _httpClient.GetStringAsync("http://localhost:5227/api/agants/relativeAgantRoleCount");
+            var resultRelativeAgantMissions = await _httpClient.GetStringAsync("http://localhost:5157/api/agants/relativeAgantRoleCount");
             //converting to the viewmodel
 
-            page1.relativeAgantMissions = JsonConvert.DeserializeObject<string>(resultRelativeAgantMissions);
+            page1.relativeAgantMissions =   resultRelativeAgantMissions;
 
 
 
@@ -91,7 +91,7 @@ namespace MossadMVC.Controllers
 
 
 
-            return View();
+            return View(page1);
         }
 
         public async Task<IActionResult> Page2()
@@ -99,7 +99,7 @@ namespace MossadMVC.Controllers
             ConnectPage2 page2 = new ConnectPage2();
 
             //get api all agants details
-            var resultAllAgantDetails = await _httpClient.GetStringAsync("http://localhost:5227/api/agants//allDetails");
+            var resultAllAgantDetails = await _httpClient.GetStringAsync("http://localhost:5157/api/agants//allDetails");
             //converting to the viewmodel
             page2._allAgantsDetails = JsonConvert.DeserializeObject<List<agantMVC>>(resultAllAgantDetails);
            
@@ -117,7 +117,7 @@ namespace MossadMVC.Controllers
             ConnectPage3 page3 = new ConnectPage3();
 
             //get api all agants details
-            var resultAllAgantDetails = await _httpClient.GetStringAsync("http://localhost:5227/api/targets/allDetails");
+            var resultAllAgantDetails = await _httpClient.GetStringAsync("http://localhost:5157/api/targets/allDetails");
             //converting to the viewmodel
             page3.targetMVCs = JsonConvert.DeserializeObject<List<string>>(resultAllAgantDetails);
 
