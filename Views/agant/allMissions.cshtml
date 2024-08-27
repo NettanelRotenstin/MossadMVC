@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MossadMVC.Models.MissionDetails>
+
+@{
+    ViewData["Title"] = "allMissions";
+}
+
+<h1>all Missions</h1>
+
+<p>
+   
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Target)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.agent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timeLeft)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Target)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.agent)
+                    @Html.ActionLink("Active agant", "Active", new {id= item.id})
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.timeLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+
+                <td>
+                    
+                    @Html.ActionLink("Update for checking the roles for team", "Update")
+                </td>
+               
+        </tr>
+}
+    </tbody>
+</table>

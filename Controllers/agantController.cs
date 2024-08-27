@@ -96,40 +96,99 @@ namespace MossadMVC.Controllers
 
         public async Task<IActionResult> Page2()
         {
-            ConnectPage2 page2 = new ConnectPage2();
+ 
 
-            //get api all agants details
-            var resultAllAgantDetails = await _httpClient.GetStringAsync("http://localhost:5157/api/agants//allDetails");
+             //get api all agants details
+            var resultAllAgantDetails = await _httpClient.GetFromJsonAsync<AgantDetailsMVc[]>("http://localhost:5157/api/agants/allDetails");
             //converting to the viewmodel
-            page2._allAgantsDetails = JsonConvert.DeserializeObject<List<agantMVC>>(resultAllAgantDetails);
-           
             
-            
-            
-            
-            
-            
-            return View();
+            return View(resultAllAgantDetails);
+        }
+
+        public async Task<IActionResult> oneDetails(int id)
+        {
+
+
+             //get api all agants details
+            var resultAgantDetails = await _httpClient.GetFromJsonAsync<AgantDetailsMVc[]>("http://localhost:5157/api/agants/allDetails");
+            //converting to the viewmodel
+ 
+            return View(resultAgantDetails);
         }
 
         public async Task<IActionResult> Page3()
         {
-            ConnectPage3 page3 = new ConnectPage3();
-
+ 
             //get api all agants details
-            var resultAllAgantDetails = await _httpClient.GetStringAsync("http://localhost:5157/api/targets/allDetails");
+            var resultAllAgantDetails = await _httpClient.GetFromJsonAsync<targetDetails[]>("http://localhost:5157/api/targets/allDetails");
             //converting to the viewmodel
-            page3.targetMVCs = JsonConvert.DeserializeObject<List<string>>(resultAllAgantDetails);
+ 
+
+             
+
+            return View(resultAllAgantDetails);
 
 
 
 
-
-
-
-            return View();
+             
         }
 
+        public async Task<IActionResult> allMissions()
+        {
+
+            //get api all agants details
+            var resultAllAgantDetails = await _httpClient.GetFromJsonAsync<MissionDetails[]>("http://localhost:5157/api/missions/allMissions");
+            //converting to the viewmodel
+
+
+
+
+            return View(resultAllAgantDetails);
+
+
+
+
+
+        }
+
+        public async Task<IActionResult> Active(int id)
+        {
+ 
+            //get api all agants details
+            await _httpClient.PutAsJsonAsync($"http://localhost:5157/api/missions/{id}", "assigned");
+            //converting to the viewmodel
+            
+
+
+
+
+            return RedirectToAction("allMissions");
+
+
+
+
+
+        }
+
+        public async Task<IActionResult> Update()
+        {
+
+            //get api all agants details
+            await _httpClient.PutAsJsonAsync("http://localhost:5157/api/missions/update","");
+            //converting to the viewmodel
+
+
+
+
+
+            return RedirectToAction("allMissions");
+
+
+
+
+
+        }
 
     }
 }
